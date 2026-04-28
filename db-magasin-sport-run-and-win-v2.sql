@@ -1,6 +1,6 @@
--- ==========================================
--- 1. CRÉATION DES TABLES (SANS CLÉS ÉTRANGÈRES)
--- ==========================================
+DROP TABLE IF EXISTS clients;
+DROP TABLE IF EXISTS produits;
+DROP TABLE IF EXISTS ventes;
 
 CREATE TABLE clients (
     id_client INT PRIMARY KEY,
@@ -27,11 +27,6 @@ CREATE TABLE ventes (
     date_inscription_client DATE
 );
 
--- ==========================================
--- 2. INSERTION DES DONNÉES (200 LIGNES)
--- ==========================================
-
--- Insertion de 50 Clients (Identique)
 INSERT INTO clients (id_client, nom, ville, date_inscription) VALUES
 (1, 'Amina', 'Kinshasa', '2024-05-12'), (2, 'Marc', 'Lubumbashi', '2023-11-20'),
 (3, 'Sophie', 'Goma', '2025-01-15'), (4, 'Jean', 'Bukavu', '2024-08-30'),
@@ -59,7 +54,6 @@ INSERT INTO clients (id_client, nom, ville, date_inscription) VALUES
 (47, 'Morgane', 'Lubumbashi', '2023-01-25'), (48, 'Jeremie', 'Goma', '2024-05-08'),
 (49, 'Melissa', 'Bukavu', '2025-07-16'), (50, 'Thibault', 'Matadi', '2023-12-01');
 
--- Insertion de 50 Produits (Identique)
 INSERT INTO produits (id_produit, nom_produit, categorie, prix, stock) VALUES
 (1, 'Raquette Pro', 'Tennis', 120.50, 45), (2, 'Balles de Tennis x3', 'Tennis', 8.00, 150),
 (3, 'Sac de Rando 50L', 'Rando', 85.00, 30), (4, 'Gants de Boxe', 'Combat', 45.00, 25),
@@ -87,7 +81,6 @@ INSERT INTO produits (id_produit, nom_produit, categorie, prix, stock) VALUES
 (47, 'Bandages de Boxe', 'Combat', 8.00, 250), (48, 'Serviette de Court', 'Tennis', 15.00, 85),
 (49, 'Drap de Sac Rando', 'Rando', 22.00, 55), (50, 'Mannequin de Frappe', 'Combat', 220.00, 5);
 
--- Insertion de 100 Ventes (Dénormalisées pour éviter les JOIN)
 INSERT INTO ventes (id_vente, date_vente, categorie_produit, prix_unitaire, quantite, ville_client, date_inscription_client) VALUES
 (1, '2025-10-01', 'Tennis', 120.50, 1, 'Lubumbashi', '2023-11-20'),
 (2, '2024-05-15', 'Tennis', 105.00, 1, 'Lubumbashi', '2024-12-05'),
